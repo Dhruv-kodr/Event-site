@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventric Events — Best Event Organisers in Khandari, Agra | Weddings · Corporate · Parties</title>
+  <meta name="description" content="Eventric Events, Khandari Agra — premium wedding, corporate and social event organisers. Elegant decor, flawless planning, unforgettable celebrations.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <script>if(localStorage.getItem('eventric-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ============================================================
+       INLINE EXTRAS CSS — additive only. Does NOT modify style.css.
+       ============================================================ -->
+  <style>
+    /* Why Us */
+    .why-grid { gap: 22px; }
+    .why-grid .feature { padding: 30px 24px; }
+
+    /* Process animated dots + connector fade */
+    .process-anim .process-step::after {
+      top: 62px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: .55;
+    }
+    .process-anim .process-step .p-dot { animation: pDotPulse 2.4s ease-in-out infinite; }
+    .process-anim .process-step:nth-child(2) .p-dot { animation-delay: .3s; }
+    .process-anim .process-step:nth-child(3) .p-dot { animation-delay: .6s; }
+    .process-anim .process-step:nth-child(4) .p-dot { animation-delay: .9s; }
+    @keyframes pDotPulse {
+      0%,100% { box-shadow: 0 0 0 6px var(--gold-tint); transform: scale(1); }
+      50%     { box-shadow: 0 0 0 12px transparent; transform: scale(1.15); }
+    }
+
+    /* Awards band */
+    .awards-band {
+      background: var(--surface-2);
+      border-block: 1px solid var(--line);
+      padding: 46px 0 34px;
+      overflow: hidden;
+    }
+    .awards-title {
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 26px;
+    }
+    .awards-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+    .awards-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      animation: awardsScroll 34s linear infinite;
+    }
+    .awards-marquee:hover .awards-track { animation-play-state: paused; }
+    .awards-track span {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1rem, 1.6vw, 1.35rem);
+      font-style: italic;
+      color: var(--heading);
+      opacity: .82;
+      padding: 0 26px;
+      letter-spacing: .02em;
+    }
+    .awards-track i { color: var(--gold); font-style: normal; font-size: 1rem; opacity: .7; }
+    @keyframes awardsScroll { to { transform: translateX(-50%); } }
+
+    /* Showreel */
+    .showreel {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 21/9;
+      margin-bottom: 56px;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+    }
+    .showreel img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1.2s var(--ease);
+    }
+    .showreel:hover img { transform: scale(1.05); }
+    .showreel::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(15,9,5,.85) 0%, rgba(15,9,5,.15) 55%, transparent 100%);
+    }
+    .showreel-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 82px; height: 82px; border-radius: 50%;
+      background: var(--grad-gold); color: #241a06;
+      display: grid; place-items: center;
+      z-index: 3; box-shadow: 0 20px 45px -12px rgba(163,127,43,.85);
+      transition: transform .4s var(--ease);
+      animation: reelPulse 2.2s ease-in-out infinite;
+    }
+    .showreel:hover .showreel-play { transform: translate(-50%, -50%) scale(1.12); }
+    @keyframes reelPulse {
+      0%,100% { box-shadow: 0 20px 45px -12px rgba(163,127,43,.85), 0 0 0 0 rgba(217,181,100,.6); }
+      50%     { box-shadow: 0 20px 45px -12px rgba(163,127,43,.85), 0 0 0 22px rgba(217,181,100,0); }
+    }
+    .showreel-caption {
+      position: absolute; left: 34px; right: 34px; bottom: 30px;
+      color: #fff; z-index: 3;
+    }
+    .showreel-caption .sr-tag {
+      display: inline-block;
+      font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold-soft); font-weight: 600; margin-bottom: 8px;
+      padding: 6px 14px; border: 1px solid rgba(217,181,100,.5); border-radius: 999px;
+      background: rgba(20,12,6,.35); backdrop-filter: blur(6px);
+    }
+    .showreel-caption h3 { color: #fff; font-size: clamp(1.1rem, 2.2vw, 1.6rem); }
+
+    /* Pricing tweaks */
+    .price-grid { align-items: stretch; }
+    .price-card .btn { width: 100%; justify-content: center; }
+
+    /* Instagram strip */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .insta-tile {
+      position: relative; aspect-ratio: 1/1;
+      border-radius: 14px; overflow: hidden;
+      display: block; box-shadow: var(--shadow-sm);
+    }
+    .insta-tile img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+    .insta-tile:hover img { transform: scale(1.12); }
+    .insta-tile::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(15,9,5,.65), transparent 55%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .insta-tile:hover::after { opacity: 1; }
+    .insta-tile span {
+      position: absolute; left: 12px; bottom: 12px; z-index: 2;
+      color: #fff; font-size: .82rem; font-weight: 600;
+      opacity: 0; transform: translateY(8px); transition: .4s var(--ease);
+    }
+    .insta-tile:hover span { opacity: 1; transform: translateY(0); }
+
+    /* FAQ wrapper */
+    .faq-wrap { max-width: 820px; margin: 0 auto; }
+    .faq-item .faq-q { font-family: "Jost", sans-serif; }
+
+    /* GSAP prep — hidden before anim (JS adds .gsap-ready on body) */
+    body.gsap-ready .gsap-fade { opacity: 0; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .awards-track,
+      .process-anim .process-step .p-dot,
+      .showreel-play { animation: none !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .awards-band { padding: 34px 0 26px; }
+      .awards-track span { padding: 0 16px; }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .showreel { aspect-ratio: 16/10; margin-bottom: 40px; }
+      .showreel-play { width: 64px; height: 64px; }
+      .showreel-caption { left: 20px; right: 20px; bottom: 20px; }
+    }
+  </style>
+</head>
+<body class="page-enter">
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-ring"></div>
+    <div class="preloader-text">Eventric</div>
+  </div>
+
+  <div class="scroll-progress"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header transparent-hero">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Eventric Events home">
+        <img src="images/logo.svg" alt="Eventric Events logo">
+        <div>
+          <div class="brand-name">Event<span>ric</span></div>
+          <span class="brand-tag">Events · Agra</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="portfolio.html">Portfolio</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-gold btn-sm">Get a Quote</a>
+        <button class="hamburger" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a class="active" href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-gold">Get a Free Quote</a>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <span class="hero-orb o1"></span>
+    <span class="hero-orb o2"></span>
+    <span class="hero-orb o3"></span>
+
+    <div class="container hero-content">
+      <div class="hero-kicker hero-fade d1"><span class="dot"></span> Khandari · Agra · Since 2014</div>
+      <h1>
+        <span class="line"><span>We Craft <em>Beautiful</em></span></span>
+        <span class="line"><span>Celebrations That</span></span>
+        <span class="line"><span>Lifetime <em>Memories</em></span></span>
+      </h1>
+      <p class="hero-fade d2">From grand weddings to sharp corporate gatherings — Eventric Events designs, plans and executes every occasion with elegance, precision and a touch of magic.</p>
+      <div class="hero-cta hero-fade d3">
+        <a href="contact.html" class="btn btn-gold">Plan Your Event <span class="btn-ico">→</span></a>
+        <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-num">500+</div><div class="hs-lbl">Events Delivered</div></div>
+        <div class="hs"><div class="hs-num">10+</div><div class="hs-lbl">Years of Craft</div></div>
+        <div class="hs"><div class="hs-num">4.9★</div><div class="hs-lbl">Client Rating</div></div>
+      </div>
+    </div>
+
+    <div class="scroll-ind"><span>Scroll</span><span class="mouse"></span></div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Weddings <i>✦</i> Sangeet <i>✦</i> Corporate Events <i>✦</i> Birthdays <i>✦</i> Decor &amp; Styling <i>✦</i> Catering <i>✦</i> Live Shows <i>✦</i> Exhibitions <i>✦</i></span>
+      <span>Weddings <i>✦</i> Sangeet <i>✦</i> Corporate Events <i>✦</i> Birthdays <i>✦</i> Decor &amp; Styling <i>✦</i> Catering <i>✦</i> Live Shows <i>✦</i> Exhibitions <i>✦</i></span>
+    </div>
+  </div>
+
+  <!-- ================= ABOUT PREVIEW ================= -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="about-visual reveal-left">
+        <div class="av-main">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=75" alt="Elegant wedding ceremony designed by Eventric Events" loading="lazy">
+        </div>
+        <div class="av-float">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=75" alt="Luxury banquet table styling" loading="lazy">
+        </div>
+        <div class="av-badge"><strong>10+</strong><span>Years of<br>Excellence</span></div>
+      </div>
+
+      <div class="reveal-right">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="section-title">Agra's Trusted <em>Event House</em></h2>
+        <p class="section-sub">Eventric Events is a Khandari-based event organising studio turning ordinary moments into extraordinary experiences. We blend meticulous planning with inspired design — so you can be a guest at your own celebration.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> End-to-end planning, décor &amp; execution under one roof</li>
+          <li><span class="tick">✓</span> Dedicated event manager for every celebration</li>
+          <li><span class="tick">✓</span> Trusted vendor network across Agra &amp; Delhi NCR</li>
+          <li><span class="tick">✓</span> Transparent pricing — no hidden surprises</li>
+        </ul>
+        <a href="about.html" class="btn btn-wine">Know Our Story <span class="btn-ico">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES PREVIEW ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-title">Services Built for <em>Every Occasion</em></h2>
+        <p class="section-sub">Whether it's a 10-person boardroom or a 1,000-guest wedding — we bring the same flawless energy.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card reveal" style="--d:0s">
+          <div class="card-img">
+            <span class="card-tag">Weddings</span>
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=75" alt="Wedding reception décor" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Weddings &amp; Sangeet</h3>
+            <p>Mehendi, sangeet, haldi and the big day — designed as one seamless story of style.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.1s">
+          <div class="card-img">
+            <span class="card-tag">Corporate</span>
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=75" alt="Corporate conference setup" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Corporate Events</h3>
+            <p>Conferences, launches, award nights and annual days — on brief, on budget, on time.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.2s">
+          <div class="card-img">
+            <span class="card-tag">Social</span>
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=75" alt="Birthday party balloons" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Parties &amp; Birthdays</h3>
+            <p>Themed birthdays, anniversaries and baby showers that guests actually talk about.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:0s">
+          <div class="card-img">
+            <span class="card-tag">Live</span>
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=75" alt="Live concert stage production" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Live Shows &amp; Stage</h3>
+            <p>Sound, lights, staging and artist management for concerts and cultural nights.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.1s">
+          <div class="card-img">
+            <span class="card-tag">Design</span>
+            <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=800&q=75" alt="Indian wedding decoration" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Decor &amp; Styling</h3>
+            <p>Floral arches, drapes, stage sets and tablescapes crafted by in-house designers.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.2s">
+          <div class="card-img">
+            <span class="card-tag">Food</span>
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=75" alt="Premium catering spread" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Catering &amp; Hospitality</h3>
+            <p>Curated menus, live counters and guest hospitality that feels first-class.</p>
+            <a href="services.html" class="link-arrow">Explore <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats-band">
+    <div class="container stats-grid">
+      <div class="stat reveal" style="--d:0s">
+        <div class="num"><span data-count="500">0</span><span class="suffix">+</span></div>
+        <div class="lbl">Events Executed</div>
+      </div>
+      <div class="stat reveal" style="--d:.1s">
+        <div class="num"><span data-count="1200">0</span><span class="suffix">+</span></div>
+        <div class="lbl">Happy Clients</div>
+      </div>
+      <div class="stat reveal" style="--d:.2s">
+        <div class="num"><span data-count="45">0</span><span class="suffix">+</span></div>
+        <div class="lbl">Expert Crew</div>
+      </div>
+      <div class="stat reveal" style="--d:.3s">
+        <div class="num"><span data-count="10">0</span><span class="suffix">+</span></div>
+        <div class="lbl">Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US (NEW) ================= -->
+  <section class="section" id="why-us">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Eventric</span>
+        <h2 class="section-title">Why Families &amp; Brands <em>Choose Us</em></h2>
+        <p class="section-sub">Ten years, five hundred celebrations, one obsession — getting every detail right.</p>
+      </div>
+
+      <div class="grid-4 why-grid">
+        <article class="feature reveal" style="--d:0s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.4 9 9 5.2-.6 9-4 9-9V7l-9-5Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Single Point of Contact</h3>
+          <p>One dedicated event manager handles vendors, timelines and your midnight worries.</p>
+        </article>
+
+        <article class="feature reveal" style="--d:.08s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>On-Time, Every Time</h3>
+          <p>Run-sheets to the minute. Baraat at 7, dinner at 9 — we've never missed a cue.</p>
+        </article>
+
+        <article class="feature reveal" style="--d:.16s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <h3>Transparent Pricing</h3>
+          <p>Itemised quotes, no last-minute "extra charges", written commitments only.</p>
+        </article>
+
+        <article class="feature reveal" style="--d:.24s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.5L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+          </div>
+          <h3>In-House Design</h3>
+          <p>Floral, drape, lighting and stage — crafted by our own creative team, not outsourced.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR PROCESS (NEW) ================= -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How We Work</span>
+        <h2 class="section-title">From First Call to <em>Final Toast</em></h2>
+        <p class="section-sub">A calm, four-step process that turns "we have an idea" into "best day ever".</p>
+      </div>
+
+      <div class="process process-anim">
+        <div class="process-step reveal" style="--d:0s">
+          <h3>Discovery Call</h3>
+          <p>We listen — date, guests, budget, mood. A 30-minute call, zero obligation.</p>
+          <div class="p-dot"></div>
+        </div>
+        <div class="process-step reveal" style="--d:.1s">
+          <h3>Concept &amp; Quote</h3>
+          <p>Mood board, 3D decor preview and an itemised quote within 48 hours.</p>
+          <div class="p-dot"></div>
+        </div>
+        <div class="process-step reveal" style="--d:.2s">
+          <h3>Design &amp; Lock</h3>
+          <p>Vendors booked, run-sheet drafted, rehearsals scheduled. You approve, we execute.</p>
+          <div class="p-dot"></div>
+        </div>
+        <div class="process-step reveal" style="--d:.3s">
+          <h3>Showtime</h3>
+          <p>Our crew arrives early, stays late, and hands you a celebration you just attend.</p>
+          <div class="p-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AWARDS BAND (NEW) ================= -->
+  <section class="awards-band" aria-label="Awards and recognition">
+    <div class="container"><p class="awards-title reveal">Recognised &amp; Recommended By</p></div>
+    <div class="awards-marquee" aria-hidden="true">
+      <div class="awards-track">
+        <span>WeddingWire India</span><i>✦</i>
+        <span>Agra Chamber of Commerce</span><i>✦</i>
+        <span>WedMeGood</span><i>✦</i>
+        <span>UP Tourism Partner</span><i>✦</i>
+        <span>Taj Hotels Preferred</span><i>✦</i>
+        <span>SHAADI.com Verified</span><i>✦</i>
+        <span>WeddingWire India</span><i>✦</i>
+        <span>Agra Chamber of Commerce</span><i>✦</i>
+        <span>WedMeGood</span><i>✦</i>
+        <span>UP Tourism Partner</span><i>✦</i>
+        <span>Taj Hotels Preferred</span><i>✦</i>
+        <span>SHAADI.com Verified</span><i>✦</i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO PREVIEW ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Work</span>
+        <h2 class="section-title">Recent <em>Celebrations</em></h2>
+        <p class="section-sub">A glimpse of weddings, corporate nights and parties we've brought to life.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <a class="p-item reveal" style="--d:0s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=75" alt="Royal Indian wedding" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Wedding</span><h3>Royal Saga Wedding</h3></span>
+        </a>
+        <a class="p-item reveal" style="--d:.08s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=75" alt="Corporate annual conference" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Corporate</span><h3>Annual Leadership Summit</h3></span>
+        </a>
+        <a class="p-item reveal" style="--d:.16s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=75" alt="New year celebration party" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Party</span><h3>Night of Lights NYE</h3></span>
+        </a>
+        <a class="p-item reveal" style="--d:.05s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=75" alt="Couple at wedding" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Wedding</span><h3>Ethereal Garden Vows</h3></span>
+        </a>
+        <a class="p-item reveal" style="--d:.13s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=75" alt="Concert crowd" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Live</span><h3>Agra Music Fest</h3></span>
+        </a>
+        <a class="p-item reveal" style="--d:.21s" href="portfolio.html">
+          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=75" alt="Birthday celebration cake" loading="lazy">
+          <span class="p-overlay"><span class="p-cat">Party</span><h3>First Frosting Birthday</h3></span>
+        </a>
+      </div>
+
+      <div style="text-align:center; margin-top:46px;" class="reveal">
+        <a href="portfolio.html" class="btn btn-gold">See Full Portfolio <span class="btn-ico">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Testimonials</span>
+        <h2 class="section-title">Loved by <em>Agra</em></h2>
+      </div>
+
+      <div class="testi-wrap reveal">
+        <div class="testi-slider">
+          <div class="testi-track">
+            <div class="testi">
+              <span class="quote-mark">”</span>
+              <div class="t-stars">★★★★★</div>
+              <p class="t-text">Eventric planned our wedding at Khandari and it was pure magic — the décor, the timeline, the little surprises. Not one thing went wrong. We just showed up and smiled!</p>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=70" alt="Neha Sharma">
+                <div><div class="t-name">Neha &amp; Amit Sharma</div><div class="t-role">Wedding · Khandari, Agra</div></div>
+              </div>
+            </div>
+            <div class="testi">
+              <span class="quote-mark">”</span>
+              <div class="t-stars">★★★★★</div>
+              <p class="t-text">We needed a 600-person annual conference in three weeks. The Eventric team delivered stage, sound, branding and hospitality — international standard, right here in Agra.</p>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=70" alt="Rohit Verma">
+                <div><div class="t-name">Rohit Verma</div><div class="t-role">Director, Trident Foods Pvt Ltd</div></div>
+              </div>
+            </div>
+            <div class="testi">
+              <span class="quote-mark">”</span>
+              <div class="t-stars">★★★★★</div>
+              <p class="t-text">My daughter's 1st birthday theme was executed better than the Pinterest board! Guests still ask who did the decor. Professional, warm and so creative.</p>
+              <div class="t-person">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=70" alt="Priya Agarwal">
+                <div><div class="t-name">Priya Agarwal</div><div class="t-role">Birthday Party · Dayal Bagh</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SHOWREEL + PRICING (NEW) ================= -->
+  <section class="section" id="showreel-pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Packages &amp; Showreel</span>
+        <h2 class="section-title">Choose Your <em>Celebration Scale</em></h2>
+        <p class="section-sub">Transparent pricing. Every package is customisable — talk to us before you decide.</p>
+      </div>
+
+      <div class="showreel reveal" role="button" tabindex="0" aria-label="Play showreel">
+        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1600&q=75" alt="Eventric showreel preview">
+        <span class="showreel-play" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <div class="showreel-caption">
+          <span class="sr-tag">Showreel · 2024</span>
+          <h3>Two minutes. Five hundred celebrations.</h3>
+        </div>
+      </div>
+
+      <div class="grid-3 price-grid">
+        <article class="price-card reveal" style="--d:0s">
+          <div class="p-name">Intimate</div>
+          <div class="p-amount">₹1.5L<small>+</small></div>
+          <p class="p-desc">Up to 80 guests · single-day celebration</p>
+          <ul class="price-feats">
+            <li>Decor &amp; floral styling</li>
+            <li>Sound + basic lighting</li>
+            <li>Catering coordination</li>
+            <li>On-site coordinator</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline">Enquire</a>
+        </article>
+
+        <article class="price-card featured reveal" style="--d:.1s">
+          <span class="price-badge">Most Popular</span>
+          <div class="p-name">Signature</div>
+          <div class="p-amount">₹6L<small>+</small></div>
+          <p class="p-desc">Up to 400 guests · multi-day celebration</p>
+          <ul class="price-feats">
+            <li>Full décor + 3D preview</li>
+            <li>Premium sound &amp; lighting</li>
+            <li>Hospitality + vendor management</li>
+            <li>Dedicated event manager</li>
+            <li>Photo &amp; video team</li>
+          </ul>
+          <a href="contact.html" class="btn btn-gold">Get Quote</a>
+        </article>
+
+        <article class="price-card reveal" style="--d:.2s">
+          <div class="p-name">Grand</div>
+          <div class="p-amount">₹18L<small>+</small></div>
+          <p class="p-desc">400+ guests · destination weddings</p>
+          <ul class="price-feats">
+            <li>Everything in Signature</li>
+            <li>Destination &amp; travel handling</li>
+            <li>Artist &amp; live entertainment</li>
+            <li>Guest concierge team</li>
+            <li>Cinematic film crew</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline">Enquire</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INSTAGRAM STRIP (NEW) ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">@eventric.events</span>
+        <h2 class="section-title">Fresh From <em>Our Feed</em></h2>
+      </div>
+      <div class="insta-grid reveal">
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=70" alt="Wedding decor"><span>♡ 412</span></a>
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=70" alt="Floral setup"><span>♡ 318</span></a>
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=70" alt="Live show"><span>♡ 507</span></a>
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=70" alt="Banquet"><span>♡ 289</span></a>
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=70" alt="Birthday"><span>♡ 361</span></a>
+        <a href="#" class="insta-tile"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=70" alt="Concert"><span>♡ 445</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ (NEW) ================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions</span>
+        <h2 class="section-title">Things Clients <em>Ask Us</em></h2>
+      </div>
+      <div class="faq-wrap reveal">
+        <div class="faq-item">
+          <button class="faq-q" type="button">How far in advance should we book?<span class="faq-ico">+</span></button>
+          <div class="faq-a"><p>For weddings, 4–8 months is ideal — peak season (Nov–Feb) fills fast. Corporate events can be turned around in 2–3 weeks. Smaller birthdays and intimate gatherings often need just 10 days.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Do you handle destinations outside Agra?<span class="faq-ico">+</span></button>
+          <div class="faq-a"><p>Yes. We regularly execute in Delhi NCR, Jaipur, Mathura and Vrindavan. For destination weddings beyond 300 km, a small travel &amp; stay component is added to the quote.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What's your typical budget range?<span class="faq-ico">+</span></button>
+          <div class="faq-a"><p>Intimate gatherings start around ₹1.5L. Mid-size weddings land between ₹6L–₹18L. Large weddings and multi-day corporate events are quoted custom. We're transparent — no hidden line items.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can we customise the decor theme?<span class="faq-ico">+</span></button>
+          <div class="faq-a"><p>Absolutely. Our in-house designers build a mood board and 3D preview for your approval before any material is ordered. You approve, we execute — no surprises on the day.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Do you provide a day-of coordinator?<span class="faq-ico">+</span></button>
+          <div class="faq-a"><p>Every full-service booking includes a dedicated event manager plus 2–6 on-ground coordinators depending on guest count. Your family enjoys the event — we run it.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⬇⬇⬇ PART 2 STARTS HERE (send "go part 2" and I'll deliver the tail) ⬇⬇⬇ -->
+     <!-- ================= CTA BAND ================= -->
+  <section class="cta-band">
+    <div class="container">
+      <h2 class="reveal">Let's Plan Something <em>Unforgettable</em></h2>
+      <p class="reveal" style="--d:.1s">Tell us your date, your dream and your budget — we'll handle everything in between. Free consultation, zero obligation.</p>
+      <div class="hero-cta reveal" style="--d:.2s">
+        <a href="contact.html" class="btn btn-gold">Get Free Consultation <span class="btn-ico">→</span></a>
+        <a href="tel:+919000000000" class="btn btn-outline">Call +91 90000 00000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <img src="images/logo.svg" alt="Eventric Events logo" style="width:46px;height:46px;">
+            <div>
+              <div class="brand-name">Event<span>ric</span></div>
+              <span class="brand-tag" style="color:#8a7f6d;">Events · Agra</span>
+            </div>
+          </a>
+          <p>Khandari's premium event organising house — weddings, corporate events and social celebrations designed with heart and executed with precision.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Weddings</a></li>
+            <li><a href="services.html">Corporate Events</a></li>
+            <li><a href="services.html">Decor &amp; Styling</a></li>
+            <li><a href="services.html">Catering</a></li>
+            <li><a href="services.html">Live Shows</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact-col">
+          <h4>Get in Touch</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Khandari, Agra, Uttar Pradesh 282002
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.8a2 2 0 0 1 1.6 2Z"/></svg>
+              +91 90000 00000
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+              hello@eventricevents.in
+            </li>
+          </ul>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email address" aria-label="Email for newsletter" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Eventric Events, Khandari Agra. All rights reserved.</span>
+        <span>Crafted with <span style="color:#d9b564;">✦</span> in the City of Taj</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" aria-label="Back to top">↑</button>
+
+  <!-- ================= EXISTING SCRIPTS (untouched) ================= -->
+  <script src="js/main.js"></script>
+
+  <!-- ================= INLINE EXTRAS (GSAP + new section behaviours) ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script>
+    /* ============================================================
+       EVENTRIC — inline extras
+       Additive only. Does NOT modify js/main.js behaviour.
+       ============================================================ */
+    (function () {
+      "use strict";
+
+      /* ---- 1. FAQ accordion (works even if main.js not loaded) ---- */
+      document.querySelectorAll(".faq-item").forEach(function (item) {
+        var q = item.querySelector(".faq-q");
+        var a = item.querySelector(".faq-a");
+        if (!q || !a) return;
+        q.addEventListener("click", function () {
+          var isOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach(function (other) {
+            other.classList.remove("open");
+            var oa = other.querySelector(".faq-a");
+            if (oa) oa.style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            a.style.maxHeight = a.scrollHeight + "px";
+          }
+        });
+      });
+
+      /* ---- 2. Showreel click → placeholder alert (swap for video modal later) ---- */
+      var reel = document.querySelector(".showreel");
+      if (reel) {
+        var openReel = function () {
+          /* Replace this with your real video modal / YouTube embed */
+          reel.style.transform = "scale(0.99)";
+          setTimeout(function () { reel.style.transform = ""; }, 180);
+          console.log("Showreel clicked — wire this to your video modal.");
+        };
+        reel.addEventListener("click", openReel);
+        reel.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openReel(); }
+        });
+      }
+
+      /* ---- 3. GSAP polish (only if GSAP loaded + motion allowed) ---- */
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || typeof window.gsap === "undefined") return;
+
+      if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+      /* Why-us cards: soft lift-in */
+      var whyCards = document.querySelectorAll(".why-grid .feature");
+      if (whyCards.length && window.ScrollTrigger) {
+        gsap.from(whyCards, {
+          opacity: 0, y: 44, rotate: -1.5, duration: 0.85,
+          ease: "power3.out", stagger: 0.1,
+          scrollTrigger: { trigger: ".why-grid", start: "top 82%" }
+        });
+      }
+
+      /* Process steps: stagger + active dot */
+      var steps = document.querySelectorAll(".process-anim .process-step");
+      if (steps.length && window.ScrollTrigger) {
+        gsap.from(steps, {
+          opacity: 0, y: 36, duration: 0.8,
+          ease: "power3.out", stagger: 0.12,
+          scrollTrigger: { trigger: ".process-anim", start: "top 80%" }
+        });
+      }
+
+      /* Awards marquee fade-in */
+      var awards = document.querySelector(".awards-band");
+      if (awards && window.ScrollTrigger) {
+        gsap.from(awards, {
+          opacity: 0, duration: 1, ease: "power2.out",
+          scrollTrigger: { trigger: awards, start: "top 90%" }
+        });
+      }
+
+      /* Price cards: pop-in */
+      var cards = document.querySelectorAll(".price-grid .price-card");
+      if (cards.length && window.ScrollTrigger) {
+        gsap.from(cards, {
+          opacity: 0, y: 50, duration: 0.9,
+          ease: "power3.out", stagger: 0.14,
+          scrollTrigger: { trigger: ".price-grid", start: "top 78%" }
+        });
+      }
+
+      /* Instagram tiles: stagger zoom */
+      var tiles = document.querySelectorAll(".insta-grid .insta-tile");
+      if (tiles.length && window.ScrollTrigger) {
+        gsap.from(tiles, {
+          opacity: 0, scale: 0.9, duration: 0.7,
+          ease: "power3.out", stagger: 0.06,
+          scrollTrigger: { trigger: ".insta-grid", start: "top 85%" }
+        });
+      }
+
+      /* Showreel reveal */
+      if (reel && window.ScrollTrigger) {
+        gsap.from(reel, {
+          opacity: 0, y: 60, duration: 1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: reel, start: "top 85%" }
+        });
+      }
+
+      /* Refresh after images load (heights shift) */
+      window.addEventListener("load", function () {
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Eventric Events | Event Organisers in Khandari, Agra</title>
+  <meta name="description" content="Meet Eventric Events — the Khandari Agra team behind 500+ flawless weddings, corporate events and celebrations. Our story, values and people.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <script>if(localStorage.getItem('eventric-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ============================================================
+       INLINE EXTRAS CSS — additive only. style.css untouched.
+       ============================================================ -->
+  <style>
+    /* ============ CINEMATIC STORY — PINNED SCROLL SCENE ============ */
+    .cine-section {
+      position: relative;
+      background: #0d0a06;
+      color: #fdf6ea;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .cine-section { background: #060503; }
+
+    .cine-stage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .cine-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.9s var(--ease);
+      will-change: opacity, transform;
+    }
+    .cine-bg.active { opacity: 0.55; }
+    .cine-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, transparent 20%, rgba(10,6,3,0.85) 100%),
+        linear-gradient(180deg, rgba(10,6,3,0.6) 0%, transparent 40%, rgba(10,6,3,0.85) 100%);
+    }
+
+    .cine-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 820px;
+      padding: 0 6vw;
+    }
+    .cine-chapter {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      font-weight: 600;
+      margin-bottom: 22px;
+      padding: 8px 20px;
+      border: 1px solid rgba(217,181,100,0.45);
+      border-radius: 999px;
+      background: rgba(20,12,6,0.4);
+      backdrop-filter: blur(6px);
+    }
+    .cine-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      color: #fff;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .cine-title em {
+      font-style: italic;
+      color: var(--gold-soft);
+    }
+    .cine-text {
+      font-size: clamp(1rem, 1.5vw, 1.14rem);
+      color: rgba(253, 246, 234, 0.82);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Progress rail down the side */
+    .cine-rail {
+      position: absolute;
+      left: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .cine-rail .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(217, 181, 100, 0.25);
+      transition: all 0.5s var(--ease);
+      position: relative;
+    }
+    .cine-rail .dot::after {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1px solid rgba(217, 181, 100, 0.35);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .cine-rail .dot.active {
+      background: var(--gold-soft);
+      transform: scale(1.4);
+      box-shadow: 0 0 20px rgba(217, 181, 100, 0.8);
+    }
+    .cine-rail .dot.active::after { opacity: 1; }
+
+    @media (max-width: 900px) {
+      .cine-rail { display: none; }
+    }
+
+    /* Chapters wrapper for ScrollTrigger pin */
+    #cineWrap { position: relative; height: 100vh; }
+
+    /* Only chapter 1's caption is visible before scroll/GSAP takes over;
+       GSAP's fromTo tweens animate the rest in/out from here. */
+    .cine-stage:not(:first-of-type) .cine-content { opacity: 0; }
+
+    /* ============ PARALLAX NUMBER BAND ============ */
+    .parallax-stats {
+      position: relative;
+      padding: 110px 0;
+      overflow: hidden;
+      background:
+        linear-gradient(120deg, rgba(94,22,48,0.96), rgba(30,10,22,0.98)),
+        url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=70") center/cover;
+      color: #fdf6ea;
+    }
+    .parallax-stats::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(217,181,100,0.14) 1.2px, transparent 1.2px);
+      background-size: 30px 30px;
+      opacity: 0.6;
+    }
+    .parallax-stats .container { position: relative; z-index: 2; }
+
+    .p-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+    .p-stat {
+      text-align: center;
+      will-change: transform;
+    }
+    .p-stat .p-num {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1;
+      background: linear-gradient(180deg, #f5dc94 0%, #d9b564 55%, #a37f2b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    .p-stat .p-suffix {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--gold-soft);
+    }
+    .p-stat .p-lbl {
+      margin-top: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: rgba(253,246,234,0.78);
+      font-weight: 500;
+    }
+    .p-stat + .p-stat::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(217,181,100,0.3);
+    }
+    .p-stat { position: relative; }
+
+    @media (max-width: 900px) {
+      .p-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 20px; }
+      .p-stat + .p-stat::before { display: none; }
+    }
+
+    /* ============ FILM STRIP (horizontal glide) ============ */
+    .film-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #0b0805;
+      padding: 90px 0 100px;
+    }
+    [data-theme="dark"] .film-wrap { background: #050402; }
+
+    .film-head {
+      text-align: center;
+      margin-bottom: 46px;
+      padding: 0 6vw;
+    }
+    .film-head .eyebrow { color: var(--gold-soft); }
+    .film-head .eyebrow::before,
+    .film-head .eyebrow::after { background: var(--gold-soft); }
+    .film-head .section-title { color: #fff; }
+    .film-head .section-title em { color: var(--gold-soft); }
+    .film-head .section-sub { color: rgba(253,246,234,0.72); }
+
+    .film-track {
+      display: flex;
+      gap: 22px;
+      padding: 0 6vw;
+      will-change: transform;
+    }
+    .film-frame {
+      flex: 0 0 380px;
+      aspect-ratio: 4 / 5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px -25px rgba(0,0,0,0.9);
+      filter: saturate(0.92);
+    }
+    .film-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1s var(--ease);
+    }
+    .film-frame:hover img { transform: scale(1.06); }
+    .film-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(10,6,3,0.85) 0%, transparent 60%);
+    }
+    .film-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      color: #fff;
+      z-index: 2;
+    }
+    .film-caption .fc-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+    .film-caption h3 {
+      color: #fff;
+      font-size: 1.22rem;
+      margin-top: 6px;
+      font-family: "Playfair Display", serif;
+    }
+
+    @media (max-width: 900px) {
+      .film-track { padding: 0 4vw; }
+      .film-frame { flex: 0 0 72vw; aspect-ratio: 4 / 5.2; }
+    }
+
+    /* Mobile fallback: native scroll */
+    @media (max-width: 720px) {
+      .film-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .film-track::-webkit-scrollbar { display: none; }
+      .film-frame { scroll-snap-align: start; }
+    }
+
+    /* ============ SIGNATURE QUOTE BAND ============ */
+    .quote-band {
+      position: relative;
+      padding: 130px 0;
+      background: var(--bg);
+      text-align: center;
+      overflow: hidden;
+    }
+    .quote-band::before,
+    .quote-band::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(60px);
+    }
+    .quote-band::before {
+      width: 320px; height: 320px;
+      background: rgba(217,181,100,0.18);
+      top: -80px; left: -80px;
+    }
+    .quote-band::after {
+      width: 260px; height: 260px;
+      background: rgba(124,35,64,0.14);
+      bottom: -60px; right: -60px;
+    }
+    .quote-band .container { position: relative; z-index: 2; }
+    .quote-mark-lg {
+      font-family: "Playfair Display", serif;
+      font-size: 8rem;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.35;
+      display: block;
+      margin-bottom: 26px;
+    }
+    .quote-text {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--heading);
+      line-height: 1.5;
+      max-width: 820px;
+      margin: 0 auto 26px;
+      letter-spacing: -0.005em;
+    }
+    .quote-text em {
+      color: var(--gold-deep);
+      font-style: italic;
+    }
+    [data-theme="dark"] .quote-text em { color: var(--gold-soft); }
+    .quote-attr {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .quote-attr::before,
+    .quote-attr::after {
+      content: "";
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin: 0 14px;
+    }
+
+    /* ============ GSAP PREP ============ */
+    body.gsap-ready .cine-content { will-change: opacity, transform; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .cine-bg { transition: none; }
+    }
+  </style>
+</head>
+<body class="page-enter">
+
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-ring"></div>
+    <div class="preloader-text">Eventric</div>
+  </div>
+
+  <div class="scroll-progress"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header solid">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Eventric Events home">
+        <img src="images/logo.svg" alt="Eventric Events logo">
+        <div>
+          <div class="brand-name">Event<span>ric</span></div>
+          <span class="brand-tag">Events · Agra</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="about.html">About</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="portfolio.html">Portfolio</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-gold btn-sm">Get a Quote</a>
+        <button class="hamburger" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a class="active" href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-gold">Get a Free Quote</a>
+  </nav>
+
+  <!-- ================= PAGE HERO ================= -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=75');"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>About</span></div>
+      <h1>The Story of <em>Eventric</em></h1>
+      <p>A small studio in Khandari with one big belief — every celebration deserves to feel effortless and unforgettable.</p>
+    </div>
+  </section>
+
+  <!-- ================= STORY ================= -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="reveal-left">
+        <span class="eyebrow">Our Journey</span>
+        <h2 class="section-title">From One Hall to <em>Hundreds of Stories</em></h2>
+        <p class="section-sub">Eventric Events began in 2014 in Khandari, Agra, with a single decorated banquet and a stubborn obsession with detail. What started as a two-person crew is today a 45+ member team trusted by families, founders and brands across Agra and Delhi NCR.</p>
+        <p style="color:var(--muted); margin-top:16px;">We've always believed events aren't about flower walls or light rigs alone — they're about how people <strong style="color:var(--text)">feel</strong> when they walk in. That belief shapes every floor plan, every playlist, every carefully timed entrance we create.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> 500+ events delivered across Uttar Pradesh</li>
+          <li><span class="tick">✓</span> In-house design, production &amp; hospitality teams</li>
+          <li><span class="tick">✓</span> COVID-era virtual &amp; hybrid event specialists</li>
+        </ul>
+      </div>
+      <div class="about-visual reveal-right">
+        <div class="av-main">
+          <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=900&q=75" alt="Eventric team celebrating an event" loading="lazy">
+        </div>
+        <div class="av-float">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=700&q=75" alt="Guests celebrating at an Eventric party" loading="lazy">
+        </div>
+        <div class="av-badge"><strong>500+</strong><span>Events<br>Delivered</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CINEMATIC STORY (NEW) ================= -->
+  <section class="cine-section" aria-label="Our story told as chapters">
+    <div id="cineWrap">
+      <!-- Chapter 1 -->
+      <div class="cine-stage" data-chapter="1" data-bg="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=75">
+        <div class="cine-bg active" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=75');"></div>
+        <div class="cine-content">
+          <span class="cine-chapter">Chapter One · 2014</span>
+          <h2 class="cine-title">It started with <em>one wedding.</em></h2>
+          <p class="cine-text">A 400-guest reception in a Khandari banquet hall. Two people. One borrowed van. And a promise that every guest would remember the night.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 2 -->
+      <div class="cine-stage" data-chapter="2" data-bg="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=1800&q=75">
+        <div class="cine-bg" style="background-image:url('https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=1800&q=75');"></div>
+        <div class="cine-content">
+          <span class="cine-chapter">Chapter Two · 2017</span>
+          <h2 class="cine-title">We built our <em>own atelier.</em></h2>
+          <p class="cine-text">Floral fabrication, drapes, lighting — all in-house. Costs fell, creative control rose, and clients noticed the difference within a single event.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 3 -->
+      <div class="cine-stage" data-chapter="3" data-bg="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1800&q=75">
+        <div class="cine-bg" style="background-image:url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1800&q=75');"></div>
+        <div class="cine-content">
+          <span class="cine-chapter">Chapter Three · 2020</span>
+          <h2 class="cine-title">We made celebrations <em>pandemic-proof.</em></h2>
+          <p class="cine-text">Hybrid weddings, sanitised hospitality, live streaming — 42 events delivered during the hardest year the industry has ever seen.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 4 -->
+      <div class="cine-stage" data-chapter="4" data-bg="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1800&q=75">
+        <div class="cine-bg" style="background-image:url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1800&q=75');"></div>
+        <div class="cine-content">
+          <span class="cine-chapter">Chapter Four · 2023</span>
+          <h2 class="cine-title">A dedicated <em>corporate wing.</em></h2>
+          <p class="cine-text">Conferences, product launches, award nights — a B2B vertical trusted by brands across Agra and Delhi NCR.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 5 -->
+      <div class="cine-stage" data-chapter="5" data-bg="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1800&q=75">
+        <div class="cine-bg" style="background-image:url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1800&q=75');"></div>
+        <div class="cine-content">
+          <span class="cine-chapter">Chapter Five · Today</span>
+          <h2 class="cine-title">500 events. <em>Still counting.</em></h2>
+          <p class="cine-text">A 45-member crew, 200+ vendor partners, and a client roster that keeps coming back. The story isn't finished — it's just getting good.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress rail -->
+    <div class="cine-rail" aria-hidden="true">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- ================= PARALLAX STATS (NEW) ================= -->
+  <section class="parallax-stats" aria-label="Eventric by the numbers">
+    <div class="container">
+      <div class="p-stats-grid">
+        <div class="p-stat" data-para="0.3">
+          <div class="p-num" data-count="500">0</div><span class="p-suffix">+</span>
+          <div class="p-lbl">Events Delivered</div>
+        </div>
+        <div class="p-stat" data-para="-0.2">
+          <div class="p-num" data-count="45">0</div><span class="p-suffix">+</span>
+          <div class="p-lbl">Team Members</div>
+        </div>
+        <div class="p-stat" data-para="0.25">
+          <div class="p-num" data-count="12">0</div><span class="p-suffix">+</span>
+          <div class="p-lbl">Cities Served</div>
+        </div>
+        <div class="p-stat" data-para="-0.15">
+          <div class="p-num" data-count="10">0</div><span class="p-suffix">+</span>
+          <div class="p-lbl">Years of Craft</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FILM STRIP (NEW) ================= -->
+  <section class="film-wrap" aria-label="Behind the scenes">
+    <div class="film-head">
+      <span class="eyebrow">Behind the Scenes</span>
+      <h2 class="section-title">Moments From the <em>Floor</em></h2>
+      <p class="section-sub">Scroll — the reel glides sideways.</p>
+    </div>
+    <div class="film-track" id="filmTrack">
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=75" alt="Banquet styling">
+        <div class="film-caption"><span class="fc-tag">Setup · Agra</span><h3>The Long Table</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=75" alt="Floral arch">
+        <div class="film-caption"><span class="fc-tag">Decor · Jaipur</span><h3>Marigold Arch</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=75" alt="Stage lights">
+        <div class="film-caption"><span class="fc-tag">Production · Delhi</span><h3>Stage &amp; Sound</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=75" alt="Party sparklers">
+        <div class="film-caption"><span class="fc-tag">Party · Agra</span><h3>Sparkler Hour</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=75" alt="Couple at wedding">
+        <div class="film-caption"><span class="fc-tag">Wedding · Udaipur</span><h3>The First Look</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=75" alt="Birthday balloons">
+        <div class="film-caption"><span class="fc-tag">Party · Khandari</span><h3>First Birthday</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=75" alt="Corporate stage">
+        <div class="film-caption"><span class="fc-tag">Corporate · Delhi</span><h3>Keynote Setup</h3></div>
+      </div>
+      <div class="film-frame">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=75" alt="Garden ceremony">
+        <div class="film-caption"><span class="fc-tag">Wedding · Agra</span><h3>Garden Vows</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SIGNATURE QUOTE (NEW) ================= -->
+  <section class="quote-band">
+    <div class="container">
+      <span class="quote-mark-lg reveal">”</span>
+      <p class="quote-text reveal" style="--d:.1s">We don't just plan events. We <em>choreograph feelings</em> — the hush before the baraat, the tears at the varmala, the laughter at 2 a.m. That's the work we love.</p>
+      <p class="quote-attr reveal" style="--d:.2s">Vikram Chauhan · Founder</p>
+    </div>
+  </section>
+
+  <!-- PART 2 continues from here -->
+     <!-- ================= MISSION / VISION / VALUES ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">What Drives Us</span>
+        <h2 class="section-title">Mission, Vision &amp; <em>Values</em></h2>
+      </div>
+      <div class="grid-3">
+        <div class="feature reveal" style="--d:0s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To remove the stress from celebrations — planning flawless events that let hosts be guests at their own happiest moments.</p>
+        </div>
+        <div class="feature reveal" style="--d:.1s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be North India's most loved event house — the first name families in Agra say when something worth celebrating happens.</p>
+        </div>
+        <div class="feature reveal" style="--d:.2s">
+          <div class="feature-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 15 8.5 22 9.3l-5 4.9 1.2 7L12 18.4 5.8 21.2 7 14.2 2 9.3l7-.8Z"/></svg>
+          </div>
+          <h3>Our Values</h3>
+          <p>Transparent pricing, obsessive detail, on-time delivery and genuine warmth — with vendors, clients and guests alike.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Milestones</span>
+        <h2 class="section-title">A Decade in <em>Details</em></h2>
+      </div>
+      <div class="timeline">
+        <div class="t-item reveal-left"><span class="t-dot"></span>
+          <div class="t-year">2014</div>
+          <h3>The First Event</h3>
+          <p>Founded in Khandari, Agra — our debut 400-guest wedding reception earns its first five-star review.</p>
+        </div>
+        <div class="t-item reveal-right"><span class="t-dot"></span>
+          <div class="t-year">2017</div>
+          <h3>In-House Design Studio</h3>
+          <p>We launch our own décor &amp; fabrication unit, cutting costs for clients and creative control for us.</p>
+        </div>
+        <div class="t-item reveal-left"><span class="t-dot"></span>
+          <div class="t-year">2020</div>
+          <h3>Going Hybrid</h3>
+          <p>Pandemic-proof events with live streaming, intimate setups and sanitised hospitality protocols.</p>
+        </div>
+        <div class="t-item reveal-right"><span class="t-dot"></span>
+          <div class="t-year">2023</div>
+          <h3>Corporate Division</h3>
+          <p>Dedicated B2B vertical for conferences, product launches and award nights across Agra &amp; NCR.</p>
+        </div>
+        <div class="t-item reveal-left" style="padding-bottom:0;"><span class="t-dot"></span>
+          <div class="t-year">2026</div>
+          <h3>500 Events &amp; Counting</h3>
+          <p>A 45+ member crew, 200+ vendor partners and a dream roster of clients who keep coming back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEAM ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The People</span>
+        <h2 class="section-title">Meet the <em>Planners</em></h2>
+        <p class="section-sub">The calm faces behind the chaos — your dedicated team from first call to final encore.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="team-card card reveal" style="--d:0s">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=75" alt="Vikram Chauhan, Founder" loading="lazy">
+            <div class="t-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">IG</a></div>
+          </div>
+          <div class="team-info"><h3>Vikram Chauhan</h3><div class="role">Founder &amp; Director</div></div>
+        </div>
+        <div class="team-card card reveal" style="--d:.1s">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=75" alt="Simran Kaur, Creative Head" loading="lazy">
+            <div class="t-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">IG</a></div>
+          </div>
+          <div class="team-info"><h3>Simran Kaur</h3><div class="role">Creative Head</div></div>
+        </div>
+        <div class="team-card card reveal" style="--d:.2s">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=75" alt="Arjun Mehta, Production Head" loading="lazy">
+            <div class="t-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">IG</a></div>
+          </div>
+          <div class="team-info"><h3>Arjun Mehta</h3><div class="role">Production Head</div></div>
+        </div>
+        <div class="team-card card reveal" style="--d:.3s">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=75" alt="Ananya Joshi, Client Experience" loading="lazy">
+            <div class="t-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">IG</a></div>
+          </div>
+          <div class="team-info"><h3>Ananya Joshi</h3><div class="role">Client Experience</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <div class="container">
+      <h2 class="reveal">Ready to Write Your <em>Chapter?</em></h2>
+      <p class="reveal" style="--d:.1s">Let's turn your vision into an event your family will remember for years.</p>
+      <div class="hero-cta reveal" style="--d:.2s">
+        <a href="contact.html" class="btn btn-gold">Start the Conversation <span class="btn-ico">→</span></a>
+        <a href="portfolio.html" class="btn btn-outline">See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <img src="images/logo.svg" alt="Eventric Events logo" style="width:46px;height:46px;">
+            <div>
+              <div class="brand-name">Event<span>ric</span></div>
+              <span class="brand-tag" style="color:#8a7f6d;">Events · Agra</span>
+            </div>
+          </a>
+          <p>Khandari's premium event organising house — weddings, corporate events and social celebrations designed with heart and executed with precision.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Weddings</a></li>
+            <li><a href="services.html">Corporate Events</a></li>
+            <li><a href="services.html">Decor &amp; Styling</a></li>
+            <li><a href="services.html">Catering</a></li>
+            <li><a href="services.html">Live Shows</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact-col">
+          <h4>Get in Touch</h4>
+          <ul class="footer-contact">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Khandari, Agra, Uttar Pradesh 282002</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.8a2 2 0 0 1 1.6 2Z"/></svg> +91 90000 00000</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg> hello@eventricevents.in</li>
+          </ul>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email address" aria-label="Email for newsletter" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Eventric Events, Khandari Agra. All rights reserved.</span>
+        <span>Crafted with <span style="color:#d9b564;">✦</span> in the City of Taj</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" aria-label="Back to top">↑</button>
+
+  <!-- ================= EXISTING SCRIPTS (untouched) ================= -->
+  <script src="js/main.js"></script>
+
+  <!-- ================= INLINE EXTRAS (GSAP + cinematic story) ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script>
+    /* ============================================================
+       EVENTRIC about — inline extras
+       Does NOT modify js/main.js. Additive only.
+       ============================================================ */
+    (function () {
+      "use strict";
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var hasGSAP = function () { return typeof window.gsap !== "undefined"; };
+      var hasST = function () { return typeof window.ScrollTrigger !== "undefined"; };
+
+      /* -----------------------------------------------------------
+         1. CINEMATIC STORY — pinned scroll scene with chapters
+            Desktop: full pin, cross-fade backgrounds, content swap
+            Mobile: same behaviour but shorter pin (works fine)
+            Reduced-motion: instant snap, no pin
+         ----------------------------------------------------------- */
+      function initCinematic() {
+        var wrap = document.getElementById("cineWrap");
+        if (!wrap) return;
+        var stages = wrap.querySelectorAll(".cine-stage");
+        var bgs = wrap.querySelectorAll(".cine-bg");
+        var dots = document.querySelectorAll(".cine-rail .dot");
+        if (!stages.length) return;
+
+        // Reduced-motion fallback: just show chapter 1
+        if (reduceMotion || !hasGSAP() || !hasST()) {
+          stages.forEach(function (s, i) {
+            if (i > 0) s.style.display = "none";
+          });
+          return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Build a master timeline pinned across all chapters
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: wrap,
+            start: "top top",
+            end: "+=" + (stages.length * 90) + "%",
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onUpdate: function (self) {
+              // Update rail dots based on overall progress
+              var idx = Math.min(
+                stages.length - 1,
+                Math.floor(self.progress * stages.length)
+              );
+              dots.forEach(function (d, i) {
+                d.classList.toggle("active", i === idx);
+              });
+              // Cross-fade backgrounds
+              bgs.forEach(function (b, i) {
+                b.classList.toggle("active", i === idx);
+              });
+            }
+          }
+        });
+
+        // For each chapter after the first, animate content out then in
+        for (var i = 1; i < stages.length; i++) {
+          var prev = stages[i - 1];
+          var cur = stages[i];
+          var prevContent = prev.querySelector(".cine-content");
+          var curContent = cur.querySelector(".cine-content");
+
+          tl.to(prevContent, {
+            opacity: 0,
+            y: -40,
+            duration: 0.5,
+            ease: "power2.in"
+          }, "chapter" + i);
+
+          tl.set(cur, { zIndex: 2 }, "chapter" + i);
+          tl.fromTo(curContent,
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+            "chapter" + i + "+=0.25"
+          );
+          tl.set(prev, { zIndex: 1 }, "chapter" + i + "+=0.9");
+        }
+
+        // Slight cinematic push-in on each chapter's bg
+        gsap.utils.toArray(".cine-bg").forEach(function (bg) {
+          gsap.to(bg, {
+            scale: 1.12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top top",
+              end: "+=" + (stages.length * 90) + "%",
+              scrub: 1
+            }
+          });
+        });
+      }
+
+      /* -----------------------------------------------------------
+         2. PARALLAX STATS — numbers drift on scroll
+            + counting animation triggers when section enters view
+         ----------------------------------------------------------- */
+      function initParallaxStats() {
+        var stats = document.querySelectorAll(".p-stat");
+        if (!stats.length) return;
+
+        // Counter animation
+        var counted = false;
+        function runCounters() {
+          if (counted) return;
+          counted = true;
+          document.querySelectorAll(".p-num[data-count]").forEach(function (el) {
+            var target = parseFloat(el.dataset.count);
+            var dur = 1800;
+            var start = performance.now();
+            function step(now) {
+              var p = Math.min((now - start) / dur, 1);
+              var eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = Math.round(target * eased).toLocaleString("en-IN");
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }
+
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                runCounters();
+                io.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          var band = document.querySelector(".parallax-stats");
+          if (band) io.observe(band);
+        } else {
+          runCounters();
+        }
+
+        // Parallax drift on scroll
+        if (reduceMotion || !hasGSAP() || !hasST()) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        stats.forEach(function (el) {
+          var depth = parseFloat(el.dataset.para || "0.2");
+          gsap.fromTo(el,
+            { y: depth * 60 },
+            {
+              y: -depth * 60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".parallax-stats",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+              }
+            }
+          );
+        });
+      }
+
+      /* -----------------------------------------------------------
+         3. FILM STRIP — horizontal glide pinned on desktop,
+            native swipe on mobile
+         ----------------------------------------------------------- */
+      function initFilmStrip() {
+        var track = document.getElementById("filmTrack");
+        if (!track) return;
+        var wrap = track.parentElement;
+
+        // No GSAP / reduced motion: plain native horizontal scroll, no transform at all
+        if (reduceMotion || !hasGSAP() || !hasST()) {
+          track.style.transform = "none";
+          track.scrollLeft = 0;
+          return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // gsap.matchMedia() re-evaluates on every resize/orientation change,
+        // and automatically reverts (kills ScrollTrigger, clears inline
+        // transform) whenever the breakpoint condition stops matching.
+        // This is what a one-shot `window.innerWidth < 720` check at boot
+        // can't do — on phones that check can fire before the mobile
+        // viewport settles, wiring up the desktop pin, which then freezes
+        // the strip mid-glide because pin math tied to window.innerHeight
+        // gets thrown off by the browser's dynamic address bar.
+        var mm = gsap.matchMedia();
+
+        // Desktop / tablet: pinned horizontal glide
+        mm.add("(min-width: 721px)", function () {
+          var getDistance = function () {
+            return Math.max(0, track.scrollWidth - window.innerWidth + 80);
+          };
+
+          var tween = gsap.to(track, {
+            x: function () { return -getDistance(); },
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top top+=80",
+              end: function () {
+                return "+=" + (getDistance() + window.innerHeight * 0.5);
+              },
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+              anticipatePin: 1
+            }
+          });
+
+          // Cleanup: gsap.matchMedia calls this automatically when the
+          // viewport leaves this breakpoint, so the transform never gets
+          // left stuck partway through when you resize down to mobile.
+          return function () {
+            if (tween.scrollTrigger) tween.scrollTrigger.kill();
+            tween.kill();
+            gsap.set(track, { clearProps: "transform" });
+          };
+        });
+
+        // Mobile: guarantee a clean, un-transformed native scroll strip
+        mm.add("(max-width: 720px)", function () {
+          gsap.set(track, { clearProps: "transform" });
+          track.scrollLeft = 0;
+        });
+
+        // Stagger reveal for frames — same on every breakpoint
+        var frames = track.querySelectorAll(".film-frame");
+        if (frames.length) {
+          gsap.from(frames, {
+            opacity: 0,
+            y: 50,
+            duration: 0.85,
+            ease: "power3.out",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top 82%",
+              toggleActions: "play none none none"
+            }
+          });
+        }
+      }
+
+      /* -----------------------------------------------------------
+         4. BOOT
+         ----------------------------------------------------------- */
+      function boot() {
+        initCinematic();
+        initParallaxStats();
+        initFilmStrip();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+
+      // Refresh after all images load (heights shift)
+      window.addEventListener("load", function () {
+        if (hasST()) ScrollTrigger.refresh();
+      });
+
+      // Throttled resize refresh
+      var rT;
+      window.addEventListener("resize", function () {
+        clearTimeout(rT);
+        rT = setTimeout(function () {
+          if (hasST()) ScrollTrigger.refresh();
+        }, 220);
+      });
+    })();
+  </script>
+</body>
+</html>
